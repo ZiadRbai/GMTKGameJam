@@ -8,7 +8,15 @@ public class Next : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(1);
+        if(other.gameObject.name == "d1")
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+            
     }
 
 }
