@@ -5,7 +5,13 @@ using UnityEngine;
 public class RollCube : MonoBehaviour
 {
     [SerializeField] private float _rollSpeed = 5;
+    private Rigidbody rb;
     private bool _isMoving;
+
+    private void Start()
+    {
+        rb = transform.GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
@@ -26,6 +32,7 @@ public class RollCube : MonoBehaviour
 
     private IEnumerator Roll(Vector3 anchor, Vector3 axis)
     {
+        rb.isKinematic = true;
         _isMoving = true;
         for (var i = 0; i < 90 / _rollSpeed; i++)
         {
@@ -33,5 +40,6 @@ public class RollCube : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         _isMoving = false;
+        rb.isKinematic = false;
     }
 }
