@@ -8,6 +8,10 @@ public class RollCube : MonoBehaviour
     private Rigidbody rb;
     private bool _isMoving = true;
 
+    float pitch;
+    [SerializeField] private AudioClip SFXClip;
+    [SerializeField] private AudioSource SFXSource;
+
     private void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
@@ -15,6 +19,8 @@ public class RollCube : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        randomizePitch();
+        SFXSource.PlayOneShot(SFXClip);
         _isMoving = false;
     }
     //void OnCollisionExit(Collision collision)
@@ -51,11 +57,16 @@ public class RollCube : MonoBehaviour
             transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
-
+        randomizePitch();
+        SFXSource.PlayOneShot(SFXClip);
         _isMoving = false;
         rb.isKinematic = false;
     }
 
+    private void randomizePitch()
+    { 
+        SFXSource.pitch = Random.Range(0.8f, 1.2f);
+    }
    
 
     
