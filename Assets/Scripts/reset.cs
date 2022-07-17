@@ -1,13 +1,27 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class reset : MonoBehaviour
 {
-    [SerializeField] private int _scene = 0;
+    private bool canTrigger = true;
+    
+
     void OnTriggerEnter(Collider other)
     {
-            SceneManager.LoadScene(_scene);
+        if (canTrigger)
+        {
+            StartCoroutine(Timer());
+            GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().Reset();
+        }
+    }
+
+    private IEnumerator Timer()
+    {
+        canTrigger = false;
+        yield return new WaitForSeconds(1f);
+        canTrigger = true;
     }
 
 }
