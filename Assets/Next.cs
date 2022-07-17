@@ -5,17 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Next : MonoBehaviour
 {
-
+    [SerializeField] private string _dicen = "d1";
+    [SerializeField] private int _scene = 1;
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "d1")
+        if(other.gameObject.name == _dicen)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(_scene);
         }
-        else
+        /*else
         {
             SceneManager.LoadScene(0);
-        }
+        }*/
             
     }
 

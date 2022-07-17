@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class reset : MonoBehaviour
 {
-
+    [SerializeField] private int _scene = 0;
     void OnTriggerEnter(Collider other)
     {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(_scene);
     }
 
 }
