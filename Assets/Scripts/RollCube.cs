@@ -17,10 +17,10 @@ public class RollCube : MonoBehaviour
     {
         _isMoving = false;
     }
-    void OnCollisionExit(Collision collision)
-    {
-        _isMoving = true;
-    }
+    //void OnCollisionExit(Collision collision)
+    //{
+    //    _isMoving = true;
+    //}
 
 
     private void Update()
