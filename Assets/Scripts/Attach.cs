@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Attach : MonoBehaviour
 {
-    public GameObject Player;
+    private Vector3 scaleSave;
 
     private void OnTriggerEnter(Collider other)
     {
-        Player.transform.parent = transform;
+        if(other.tag == "Player")
+        {
+            other.transform.parent = transform.parent;
+        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
-        Player.transform.parent = null;
+        if (other.tag == "Player")
+        {
+            other.transform.SetParent(null, true);
+        }
     }
 
 }
