@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dicen: d6
-  _scene: 3
+  _scene: 4
 --- !u!65 &1467653097
 BoxCollider:
   m_ObjectHideFlags: 0

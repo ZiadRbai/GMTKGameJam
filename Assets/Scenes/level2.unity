@@ -1050,7 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dicen: d5
-  _scene: 2
+  _scene: 3
 --- !u!65 &1404960394
 BoxCollider:
   m_ObjectHideFlags: 0

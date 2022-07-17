@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dicen: d3
-  _scene: 0
+  _scene: 1
 --- !u!65 &228740763
 BoxCollider:
   m_ObjectHideFlags: 0
