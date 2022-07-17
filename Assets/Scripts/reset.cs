@@ -8,7 +8,7 @@ public class reset : MonoBehaviour
     private bool canTrigger = true;
     
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (canTrigger)
         {

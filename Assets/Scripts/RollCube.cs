@@ -6,12 +6,22 @@ public class RollCube : MonoBehaviour
 {
     [SerializeField] private float _rollSpeed = 5;
     private Rigidbody rb;
-    private bool _isMoving;
+    private bool _isMoving = true;
 
     private void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        _isMoving = false;
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        _isMoving = true;
+    }
+
 
     private void Update()
     {
@@ -28,6 +38,8 @@ public class RollCube : MonoBehaviour
             var axis = Vector3.Cross(Vector3.up, dir);
             StartCoroutine(Roll(anchor, axis));
         }
+
+        //_isMoving = true;
     }
 
     private IEnumerator Roll(Vector3 anchor, Vector3 axis)
@@ -39,7 +51,13 @@ public class RollCube : MonoBehaviour
             transform.RotateAround(anchor, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);
         }
+
         _isMoving = false;
         rb.isKinematic = false;
     }
+
+   
+
+    
 }
+
